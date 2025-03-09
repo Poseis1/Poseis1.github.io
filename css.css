@@ -1,0 +1,124 @@
+body {
+    background-image: url('roumanie_principale.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: lightblue;
+}
+
+/* Bande blanche en haut et en bas */
+.bande-blanche {
+    background-color: white;
+    height: 500px; /* Ajustez la hauteur selon vos besoins */
+    width: 100%;
+}
+
+/* Bande blanche sous les boutons avec du texte */
+.bande-texte {
+    background-color: rgba(255, 255, 255, 0.9); /* Blanc semi-transparent */
+    width: 100%;
+    padding: 5;
+    text-align: center;
+    position: relative; 
+    z-index: 2;
+}
+
+.bande-texte p {
+    font-size: 18px;
+	font-style : bold;
+    color: black; /* Texte noir pour le contraste */
+    margin: 2;
+}
+
+/* Contenu principal */
+.content {
+    flex: 1;
+    padding: 20px; /* Ajout d'un peu d'espace autour du contenu */
+}
+
+/* Styles généraux */
+html {
+    font-family: sans-serif;
+}
+
+/* Styles des titres */
+h1 {
+    text-align: center;
+}
+
+h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+h5 {
+	
+    text-align: justify;
+	color : black;
+	font-style : bold;
+	font-size : 25px;
+
+}
+
+h1:hover {
+    background-color: darkgrey;
+}
+
+/* Logo */
+#logo {
+    text-align: center;
+	position : relative;
+    }
+
+#logo img {
+    height: 400px;	
+}
+
+/* Header */
+header {
+    display: flex;
+    background-color: black;
+}
+
+header img {
+    height: 75px;
+}
+
+header h1 {
+    line-height: 2em;
+    height: 75px;
+    width: 25%;
+    color: white;
+    margin: 0;
+}
+
+
+/* Titres avec marges spécifiques */
+h2 {
+    text-align: center;
+    margin-top: 1080px;
+    margin-left: auto;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 2160px;
+}
+
+h4 {
+    text-align: center;
+    margin-top: 3240px;
+}
+
+#h2 {
+    height: 540px;
+}
+
+#h3 {
+    height: 540px;
+}
