@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Méteooooo</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" type="text/css" href="cssP2.css">
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    #map {
+      height: 1000px;
+      width : 1200px
+    }
+  </style>
+</head>
+<body>
+
+  <header><a href="index.html"><img src="logo2.png"> </a>
+  <h1><a href="siteP2.html">Sélectionné</h1></a>
+  <h1><a href="PreviDemain.html">Météo Quotidienne</a></h1>
+  <h1><a href="PreviHebdo.html">Prévision Hebdomadaire</a></h1>
+  </header>
+
+<div style="display: flex;">
+
+<div id="map"></div>
+<h8>
+<h3><div id="coordinates"></div></h3>
+<p>il fait une température de :</p>
+<p id='temp'></p>
+<p>et le temps est :</p>
+<p id='state'></p>
+</h8>
+<div id="coordinates"></div>
+</div>
+<script>
+
+var map = L.map('map').setView([0, 0], 2);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+map.on('click', function(e) {
+  var coordinatesDisplay = document.getElementById('coordinates');
+  coordinatesDisplay.innerHTML = 'Coordonnées : ' + e.latlng.lat + ', ' + e.latlng.lng;
+
+  const apiKey = '97ea12b3c764a0d8ac97aaaa4351d9ee';
+  let latitude = e.latlng.lat;
+  let longitude = e.latlng.lng;
+
+  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,daily&units=metric&lang=fr&appid=${apiKey}`)
+    .then(response => response.json())
+    .then(data => {
+      let temperature = data.current.temp +"°C";
+      console.log(temperature)
+      {document.getElementById('temp').innerHTML= temperature;}
+      const weatherDescription = data.current.weather[0].description;
+      console.log(weatherDescription)
+      {document.getElementById('state').innerHTML= weatherDescription;}
+
+    })
+    .catch(error => {
+      console.log('Error:', error);
+    })
+});
+
+</script>
+</body>
+</html>
