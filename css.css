@@ -12,8 +12,8 @@ body {
 }
 image {
 	text-allign : center;
-	max-height : 500px;
-
+	width : 500px;
+	height : auto;
 
 }
 /* Bande blanche en haut et en bas */
