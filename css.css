@@ -10,7 +10,10 @@ body {
     min-height: 100vh;
     background-color: lightblue;
 }
-
+imag {
+	text-align : center;
+	width : 200px;
+	height : auto;
 }
 /* Bande blanche en haut et en bas */
 .bande-blanche {
