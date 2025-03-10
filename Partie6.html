@@ -3,71 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Méteooooo</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <title>Lien avec la spé</title>
   <link rel="stylesheet" type="text/css" href="cssP2.css">
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <style>
-    #map {
-      height: 1000px;
-      width : 1200px
-    }
-  </style>
 </head>
 <body>
 
-  <header><a href="index.html"><img src="logo2.png"> </a>
-  <h1><a href="Partie1.html">Partie 1</a></h1>
-  <h1><a href="Partie2.html">Partie 2</a></h1>
-  <h1><a href="Partie3.html">Partie 3</h1></a>
-  <h1><a href="Partie4.html">Partie 4</a></h1>
-  <h1><a href="Partie5.html">Partie 5</a></h1>
+  <header>
+    <a href="index.html"><img src="logo2.png"></a>
+    <h1><a href="Partie1.html">Partie 1</a></h1>
+    <h1><a href="Partie2.html">Partie 2</a></h1>
+    <h1><a href="Partie3.html">Partie 3</a></h1>
+    <h1><a href="Partie4.html">Partie 4</a></h1>
+    <h1><a href="Partie5.html">Partie 5</a></h1>
   </header>
 
-<div style="display: flex;">
+  <p>
+    La Roumanie est significativement influencée par le changement climatique depuis le siècle dernier.<br><br>
 
-<div id="map"></div>
-<h8>
-<h3><div id="coordinates"></div></h3>
-<p>il fait une température de :</p>
-<p id='temp'></p>
-<p>et le temps est :</p>
-<p id='state'></p>
-</h8>
-<div id="coordinates"></div>
-</div>
-<script>
+    <strong>Modifications des paramètres climatiques :</strong><br>
+    - La température de l’air est en hausse. La température moyenne annuelle a connu une augmentation de <strong>1°C</strong> entre 1901 et 2020. Cette hausse est plus marquée dans le sud et l’est du pays, en été et en hiver.<br>
+    - Les précipitations connaissent des variations régionales : <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Une augmentation en automne, surtout dans le centre et l’ouest.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Une diminution au printemps et en été.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Une hausse des précipitations maximales journalières, particulièrement en été et en automne.<br>
+    - L’enneigement a fortement diminué ces 5-6 dernières décennies, avec :<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Moins de jours avec une couche de neige.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Une épaisseur de neige réduite.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Moins de jours de chutes de neige, surtout dans les régions intra-carpatiques.<br><br>
 
-var map = L.map('map').setView([0, 0], 2);
+    <strong>Impact sur les ressources en eau :</strong><br>
+    Les rivières, première ressource en eau de la Roumanie, sont directement affectées par ces changements climatiques.<br>
+    - On observe une tendance générale à la baisse des débits annuels, surtout dans le sud du pays.<br>
+    - Le régime d’écoulement évolue avec :<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Une augmentation des débits en hiver et en automne.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;• Une diminution des débits en été.<br>
+    Ces tendances sont liées à l’augmentation des températures, la variation des précipitations et la diminution de l’enneigement. Elles varient selon les régions : hausse des débits dans le nord et baisse dans le sud.<br>
+  </p>
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
-map.on('click', function(e) {
-  var coordinatesDisplay = document.getElementById('coordinates');
-  coordinatesDisplay.innerHTML = 'Coordonnées : ' + e.latlng.lat + ', ' + e.latlng.lng;
-
-  const apiKey = '97ea12b3c764a0d8ac97aaaa4351d9ee';
-  let latitude = e.latlng.lat;
-  let longitude = e.latlng.lng;
-
-  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,daily&units=metric&lang=fr&appid=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-      let temperature = data.current.temp +"°C";
-      console.log(temperature)
-      {document.getElementById('temp').innerHTML= temperature;}
-      const weatherDescription = data.current.weather[0].description;
-      console.log(weatherDescription)
-      {document.getElementById('state').innerHTML= weatherDescription;}
-
-    })
-    .catch(error => {
-      console.log('Error:', error);
-    })
-});
-
-</script>
 </body>
 </html>
