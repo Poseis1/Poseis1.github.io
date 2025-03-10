@@ -3,16 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Méteooooo</title>
+  <title>Partie 2</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" type="text/css" href="cssP2.css">
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <style>
-    #map {
-      height: 1000px;
-      width : 1200px
-    }
-  </style>
 </head>
 <body>
 
@@ -24,50 +17,26 @@
   <h1><a href="Partie6.html">Partie 6</a></h1>
   </header>
 
-<div style="display: flex;">
+<p>  Consommation électricité Roumanie par an : 48 000 GWh = 4,8x1010 kWh
+Or 1 tep= 11630 kWh
 
-<div id="map"></div>
-<h8>
-<h3><div id="coordinates"></div></h3>
-<p>il fait une température de :</p>
-<p id='temp'></p>
-<p>et le temps est :</p>
-<p id='state'></p>
-</h8>
-<div id="coordinates"></div>
-</div>
-<script>
+Donc électricité cons/an =(4.8*1010)/11630 = 4 127 257 tep
+Consommation électricité par Habitant Roumanie : 2556 kWh =
 
-var map = L.map('map').setView([0, 0], 2);
+= 0,22 tep
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+Consommation d’électricité par habitant et par an des pays
+voisins et de référence :
 
-map.on('click', function(e) {
-  var coordinatesDisplay = document.getElementById('coordinates');
-  coordinatesDisplay.innerHTML = 'Coordonnées : ' + e.latlng.lat + ', ' + e.latlng.lng;
+Ukraine : 2369 kWh = 0,20 tep
+Moldavie : 2341 kWh =0,20 tep
+Bulgarie : 5309 kWh =0,46 tep
+Serbie : 5210 kWh = 0,45 tep
+Hongrie : 4459 kWh = 0,38 tep
+France : 6075 kWh =0,52 tep
 
-  const apiKey = '97ea12b3c764a0d8ac97aaaa4351d9ee';
-  let latitude = e.latlng.lat;
-  let longitude = e.latlng.lng;
-
-  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,daily&units=metric&lang=fr&appid=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-      let temperature = data.current.temp +"°C";
-      console.log(temperature)
-      {document.getElementById('temp').innerHTML= temperature;}
-      const weatherDescription = data.current.weather[0].description;
-      console.log(weatherDescription)
-      {document.getElementById('state').innerHTML= weatherDescription;}
-
-    })
-    .catch(error => {
-      console.log('Error:', error);
-    })
-});
-
-</script>
+Etats-Unis : 12187
+kWh =1,04 tep
+</p>
 </body>
 </html>
