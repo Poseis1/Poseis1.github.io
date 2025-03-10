@@ -10,7 +10,12 @@ body {
     min-height: 100vh;
     background-color: lightblue;
 }
+image {
+	text-allign : center;
+	max-height : 500px;
 
+
+}
 /* Bande blanche en haut et en bas */
 .bande-blanche {
     background-color: white;
