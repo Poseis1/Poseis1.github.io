@@ -3,71 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Méteooooo</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <title>Partie 5</title>
   <link rel="stylesheet" type="text/css" href="cssP2.css">
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <style>
-    #map {
-      height: 1000px;
-      width : 1200px
-    }
-  </style>
 </head>
 <body>
 
-  <header><a href="index.html"><img src="logo2.png"> </a>
-  <h1><a href="Partie1.html">Partie 1</a></h1>
-  <h1><a href="Partie2.html">Partie 2</a></h1>
-  <h1><a href="Partie3.html">Partie 3</h1></a>
-  <h1><a href="Partie4.html">Partie 4</a></h1>
-  <h1><a href="Partie6.html">Partie 6</a></h1>
+  <header>
+    <a href="index.html"><img src="logo2.png"></a>
+    <h1><a href="Partie1.html">Partie 1</a></h1>
+    <h1><a href="Partie2.html">Partie 2</a></h1>
+    <h1><a href="Partie3.html">Partie 3</a></h1>
+    <h1><a href="Partie4.html">Partie 4</a></h1>
+    <h1><a href="Partie6.html">Partie 6</a></h1>
   </header>
 
-<div style="display: flex;">
+  <p>
+    En 2021, la production d’électricité de la Roumanie était de <strong>59,47 TWh</strong> avec une part importante d’énergies renouvelables (<strong>44,8 %</strong>).<br><br>
 
-<div id="map"></div>
-<h8>
-<h3><div id="coordinates"></div></h3>
-<p>il fait une température de :</p>
-<p id='temp'></p>
-<p>et le temps est :</p>
-<p id='state'></p>
-</h8>
-<div id="coordinates"></div>
-</div>
-<script>
+    <strong>Répartition des modes de production :</strong><br>
+    <em>Source : Wikipédia</em><br><br>
 
-var map = L.map('map').setView([0, 0], 2);
+    <strong>Atout géographique :</strong><br>
+    L’hydroélectricité joue un rôle majeur dans la production d’électricité de la Roumanie, représentant près de <strong>30 %</strong> de cette production.<br>
+    Ce fort potentiel hydroélectrique est permis par un réseau hydrographique dense et un relief montagneux important.<br><br>
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+    Effectivement, la Roumanie bénéficie d’un réseau fluvial important qui lui permet une exploitation significative des énergies renouvelables, notamment hydroélectriques.<br>
+    <strong>58 % du Danube</strong>, second fleuve le plus long d’Europe, traverse le sud du pays.<br>
+    D’autres rivières et affluents offrent un potentiel exploitable : Olt, Mureș, Someș, Jiu, Argeș.<br>
+    De plus, le massif montagneux des Carpates est favorable à la construction de barrages en altitude.<br><br>
 
-map.on('click', function(e) {
-  var coordinatesDisplay = document.getElementById('coordinates');
-  coordinatesDisplay.innerHTML = 'Coordonnées : ' + e.latlng.lat + ', ' + e.latlng.lng;
+    Sa proximité avec la <strong>mer Noire</strong> est également un atout notable pour la production d’électricité de la Roumanie.<br>
+    En effet, la mer Noire regorge de ressources en hydrocarbures (<strong>gaz offshore</strong>), cette réserve est estimée à <strong>200 milliards de mètres cubes</strong> de gaz.<br>
+    Le projet <strong>Neptun Deep</strong>, qui devrait entrer en production en 2027, pourrait permettre à la Roumanie de devenir le premier producteur de gaz de l’UE.
+  </p>
 
-  const apiKey = '97ea12b3c764a0d8ac97aaaa4351d9ee';
-  let latitude = e.latlng.lat;
-  let longitude = e.latlng.lng;
-
-  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,daily&units=metric&lang=fr&appid=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-      let temperature = data.current.temp +"°C";
-      console.log(temperature)
-      {document.getElementById('temp').innerHTML= temperature;}
-      const weatherDescription = data.current.weather[0].description;
-      console.log(weatherDescription)
-      {document.getElementById('state').innerHTML= weatherDescription;}
-
-    })
-    .catch(error => {
-      console.log('Error:', error);
-    })
-});
-
-</script>
 </body>
 </html>
