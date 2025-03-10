@@ -3,71 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Méteooooo</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <title>Partie 4</title>
   <link rel="stylesheet" type="text/css" href="cssP2.css">
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <style>
-    #map {
-      height: 1000px;
-      width : 1200px
-    }
-  </style>
 </head>
 <body>
 
-  <header><a href="index.html"><img src="logo2.png"> </a>
-  <h1><a href="Partie1.html">Partie 1</a></h1>
-  <h1><a href="Partie2.html">Partie 2</a></h1>
-  <h1><a href="Partie3.html">Partie 3</h1></a>
-  <h1><a href="Partie5.html">Partie 5</a></h1>
-  <h1><a href="Partie6.html">Partie 6</a></h1>
+  <header>
+    <a href="index.html"><img src="logo2.png"></a>
+    <h1><a href="Partie1.html">Partie 1</a></h1>
+    <h1><a href="Partie2.html">Partie 2</a></h1>
+    <h1><a href="Partie3.html">Partie 3</a></h1>
+    <h1><a href="Partie5.html">Partie 5</a></h1>
+    <h1><a href="Partie6.html">Partie 6</a></h1>
   </header>
 
-<div style="display: flex;">
+  <p>
+    En 2023, un habitant de la Roumanie émet en moyenne <strong>5,5 teq CO₂</strong> (tonnes équivalent CO₂ = le potentiel de réchauffement global d'un gaz à effet de serre, calculé par équivalence avec une quantité de CO₂ qui aurait le même potentiel de réchauffement).<br><br>
 
-<div id="map"></div>
-<h8>
-<h3><div id="coordinates"></div></h3>
-<p>il fait une température de :</p>
-<p id='temp'></p>
-<p>et le temps est :</p>
-<p id='state'></p>
-</h8>
-<div id="coordinates"></div>
-</div>
-<script>
+    <strong>Émissions de GES par habitant et par pays (gaz à effet de serre) en 2023 :</strong><br>
+    France : 5,8 teq<br>
+    Hongrie : 6,4 teq<br>
+    Bulgarie : 7,9 teq<br>
+    Qatar : 52,57 teq<br>
+    Chine : 11,11 teq<br>
+    États-Unis : 17,61 teq<br>
+    Moyenne mondiale : 6,59 teq par habitant<br><br>
 
-var map = L.map('map').setView([0, 0], 2);
+    La Roumanie a une émission de GES par habitant inférieure à celle de la moyenne mondiale, mais aussi à celle de la moyenne de l’UE (7,26 teq).<br>
+    Le pays étant encore en développement, il émet moins de CO₂ que les pays industrialisés.<br><br>
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+    De plus, la Roumanie a un mix énergétique diversifié tourné de plus en plus vers les énergies renouvelables, réduisant ainsi sa dépendance aux énergies fossiles, ce qui lui permet de limiter ses émissions de gaz à effet de serre.<br>
+    Aussi, le pays possède ses propres ressources en gaz naturel, réduisant la nécessité d'importer du charbon ou du pétrole, qui sont plus polluants.
+  </p>
 
-map.on('click', function(e) {
-  var coordinatesDisplay = document.getElementById('coordinates');
-  coordinatesDisplay.innerHTML = 'Coordonnées : ' + e.latlng.lat + ', ' + e.latlng.lng;
-
-  const apiKey = '97ea12b3c764a0d8ac97aaaa4351d9ee';
-  let latitude = e.latlng.lat;
-  let longitude = e.latlng.lng;
-
-  fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,daily&units=metric&lang=fr&appid=${apiKey}`)
-    .then(response => response.json())
-    .then(data => {
-      let temperature = data.current.temp +"°C";
-      console.log(temperature)
-      {document.getElementById('temp').innerHTML= temperature;}
-      const weatherDescription = data.current.weather[0].description;
-      console.log(weatherDescription)
-      {document.getElementById('state').innerHTML= weatherDescription;}
-
-    })
-    .catch(error => {
-      console.log('Error:', error);
-    })
-});
-
-</script>
 </body>
 </html>
