@@ -5,10 +5,7 @@ html{
 h1{
     text-align: center;
 }
-imag {
-	text-allign : center;
-	width : 200px;
-	height : auto;
+
 header{
     display:flex;
     background-color:black ;
