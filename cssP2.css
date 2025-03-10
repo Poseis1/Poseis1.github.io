@@ -5,6 +5,11 @@ html{
 h1{
     text-align: center;
 }
+imag {
+    text-align : center;
+    width : 200px;
+    height : auto;
+}
 
 header{
     display:flex;
