@@ -10,10 +10,6 @@ body {
     min-height: 100vh;
     background-color: lightblue;
 }
-image {
-	text-allign : center;
-	width : 200px;
-	height : auto;
 
 }
 /* Bande blanche en haut et en bas */
